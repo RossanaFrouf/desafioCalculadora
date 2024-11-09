@@ -5,6 +5,8 @@ export default function App() {
   const [segundoValor, setSegundoValor] = useState();
   const [resultado, setResultado] = useState();
 
+  const [audio] = useState(new Audio("public/bobsong.mp3"));
+
   const capturandoPrimeiroValor = (e) => {
     setPrimeiroValor(Number(e.target.value));
     console.log(e.target.value);
@@ -17,18 +19,26 @@ export default function App() {
 
   const soma = () => {
     setResultado(primeiroValor + segundoValor);
+    tocarMusica();
   };
 
   const subtracao = () => {
     setResultado(primeiroValor - segundoValor);
+    tocarMusica();
   };
 
   const multiplicacao = () => {
     setResultado(primeiroValor * segundoValor);
+    tocarMusica();
   };
 
   const divisao = () => {
     setResultado(primeiroValor / segundoValor);
+    tocarMusica();
+  };
+
+  const tocarMusica = () => {
+    audio.play(); // Toca a música quando chamada
   };
 
   return (
